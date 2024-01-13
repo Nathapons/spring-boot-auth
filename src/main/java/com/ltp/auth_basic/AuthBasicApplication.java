@@ -3,6 +3,8 @@ package com.ltp.auth_basic;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.ltp.auth_basic.pojo.Contact;
 import com.ltp.auth_basic.repository.ContactRepository;
@@ -17,6 +19,11 @@ public class AuthBasicApplication implements CommandLineRunner{
 
 	public static void main(String[] args) {
 		SpringApplication.run(AuthBasicApplication.class, args);
+	}
+
+	@Bean
+	public BCryptPasswordEncoder bCryptPasswordEncoder() {
+		return new BCryptPasswordEncoder();
 	}
 
 	@Override
